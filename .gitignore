@@ -1,0 +1,13 @@
+# Miscellaneous
+.DS_Store
+.vscode/
+__pycache__/
+
+# virtual env files
+python_env/
+
+# exercises or practices
+data_science/pandas/pandas_exercises/
+
+# environment variables
+.env
