@@ -7,7 +7,7 @@ __pycache__/
 python_env/
 
 # exercises or practices
-data_science/pandas/pandas_exercises/
+data_analytics/pandas/pandas_exercises/
 
 # environment variables
 .env
