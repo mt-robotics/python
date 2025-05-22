@@ -2,12 +2,13 @@
 .DS_Store
 .vscode/
 __pycache__/
+personal/
 
 # virtual env files
 python_env/
 
 # exercises or practices
-data_analytics/pandas/pandas_exercises/
+data_science/pandas/pandas_exercises/
 
 # environment variables
 .env

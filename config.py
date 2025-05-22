@@ -14,8 +14,8 @@ def check_env_variables():
         else:
             print(f"Warning: {var} is not set.")
 
-# Call the function to check environment variables
-check_env_variables()
+# # Call the function to check environment variables
+# check_env_variables()
 
 # retrieve environment variables
 POSTGRES_USER = os.getenv("POSTGRES_USER", "postgres")
@@ -25,3 +25,6 @@ POSTGRES_PORT = os.getenv("POSTGRES_PORT", 5432)
 
 POSTGRES_DB_MV = os.getenv("POSTGRES_DB_MV", "postgres")
 POSTGRES_URL_MV = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB_MV}"
+
+POSTGRES_DB_MOVIES = os.getenv("POSTGRES_DB_MOVIES", "postgres")
+MOVIES = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB_MV}"
