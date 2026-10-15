@@ -1,0 +1,57 @@
+[project]
+name = "python-learning"
+version = "0.1.0"
+description = "Python learning project with data science exercises"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "beautifulsoup4",
+    "fastapi",
+    "ipykernel>=7.1.0",
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "pandas-datareader",
+    "plotly",
+    "psycopg2-binary",
+    "pydantic",
+    "python-dotenv",
+    "scipy",
+    "seaborn",
+    "sqlalchemy",
+]
+
+[project.optional-dependencies]
+dev = [
+"pytest>=7.0",
+"pytest-asyncio",
+"black>=23.0",
+"ruff>=0.1",
+"ipykernel",
+"jupyter",
+]
+
+# [build-system]
+# requires = ["hatchling"]
+# build-backend = "hatchling.build"
+#
+# NOTE: Commented out because this is a learning/script project, not a package.
+# Build system is only needed if you're creating an installable Python package.
+# For learning projects with standalone scripts, we only need [project] dependencies.
+# Uncomment if you later want to make this an installable package (e.g., pip install -e .)
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+select = ["E", "F", "I", "N", "W"]
+ignore = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
+addopts = "-v --tb=short"

@@ -1,12 +1,24 @@
 import os
+import logging
 from dotenv import load_dotenv
+
+logging.basicConfig(
+    level=logging.DEBUG, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
 
 # load environment variables from .env file
 load_dotenv()
 
+
 # Check if the environment variables are loaded successfully
 def check_env_variables():
-    postgres_vars = ["POSTGRES_HOST", "POSTGRES_PORT", "POSTGRES_USER", "POSTGRES_PASSWORD", "POSTGRES_DB_MV"]
+    postgres_vars = [
+        "POSTGRES_HOST",
+        "POSTGRES_PORT",
+        "POSTGRES_USER",
+        "POSTGRES_PASSWORD",
+        "POSTGRES_DB_MV",
+    ]
     for var in postgres_vars:
         value = os.getenv(var)
         if value:
@@ -14,8 +26,6 @@ def check_env_variables():
         else:
             print(f"Warning: {var} is not set.")
 
-# # Call the function to check environment variables
-# check_env_variables()
 
 # retrieve environment variables
 POSTGRES_USER = os.getenv("POSTGRES_USER", "postgres")

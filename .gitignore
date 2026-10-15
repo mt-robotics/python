@@ -1,14 +1,270 @@
-# Miscellaneous
-.DS_Store
-.vscode/
+# ============================================================================
+# Python .gitignore - Professional & Universal
+# Works with: venv, virtualenv, UV, Poetry, PDM, Pipenv
+# ============================================================================
+
+# ============================================================================
+# Python Runtime & Compilation
+# ============================================================================
 __pycache__/
-personal/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+.installed.cfg
+.Python
 
-# virtual env files
+# ============================================================================
+# Virtual Environments (All Types)
+# ============================================================================
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
 python_env/
+virtualenv/
+.virtualenv/
 
-# exercises or practices
+# ============================================================================
+# Package Managers & Lock Files
+# ============================================================================
+# UV
+.uv/
+
+# Poetry
+poetry.lock
+.poetry/
+
+# PDM
+.pdm.toml
+.pdm-python
+.pdm-build/
+pdm.lock
+
+# Pipenv
+Pipfile.lock
+
+# Pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ============================================================================
+# Distribution / Packaging
+# ============================================================================
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.manifest
+*.spec
+MANIFEST
+__pypackages__/
+
+# ============================================================================
+# Testing & Coverage
+# ============================================================================
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+*.cover
+*.py,cover
+nosetests.xml
+.hypothesis/
+
+# ============================================================================
+# Jupyter Notebooks
+# ============================================================================
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+profile_default/
+ipython_config.py
+
+# ============================================================================
+# IDEs & Editors
+# ============================================================================
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm / JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ============================================================================
+# Type Checkers & Linters
+# ============================================================================
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+.pyre/
+.ruff_cache/
+
+# ============================================================================
+# Documentation
+# ============================================================================
+docs/_build/
+site/
+.mkdocs/
+
+# ============================================================================
+# Databases
+# ============================================================================
+*.db
+*.sqlite
+*.sqlite3
+db.sqlite3
+db.sqlite3-journal
+*.rdb
+*.aof
+*.pid
+
+# ============================================================================
+# Logs
+# ============================================================================
+*.log
+logs/
+*.pid
+
+# ============================================================================
+# Environment Variables & Secrets
+# ============================================================================
+.env
+.env.local
+.env.*.local
+.envrc
+*.pem
+*.key
+.pypirc
+secrets.toml
+.streamlit/secrets.toml
+
+# ============================================================================
+# OS & System Files
+# ============================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================================================
+# Project Specific
+# ============================================================================
+# Data science exercises (as per your original)
 data_science/pandas/pandas_exercises/
 
-# environment variables
-.env
+# Personal files
+personal/
+
+# Archive
+archive/expired/
+archive/paper_drafting/
+
+# AI assistants
+.claude/
+CLAUDE.md
+PROJECT.md
+
+# Temporary files
+temp/
+*.tmp
+*.bak
+*.swp
+
+# Build artifacts
+*.pyc
+cython_debug/
+
+# ============================================================================
+# Version Control & Python Version Management
+# ============================================================================
+# Keep .python-version for team consistency (UV/pyenv)
+# Uncomment below ONLY if you want different versions per developer
+# .python-version
+
+# ============================================================================
+# Framework Specific
+# ============================================================================
+# Django
+local_settings.py
+media/
+staticfiles/
+
+# Flask
+instance/
+.webassets-cache
+
+# FastAPI / Uvicorn
+.uvicorn/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Message Brokers
+mnesia/
+rabbitmq/
+rabbitmq-data/
+activemq-data/
+
+# Special Python packages
+.scrapy/
+.sage.py
+.abstra/
+marimo/_static/
+marimo/_lsp/
+__marimo__/
+
+# ============================================================================
+# End of .gitignore
+# ============================================================================
+
+# Private folders: real copies live in Google Drive, linked in
+/personal
+/temp
+/data_science/pandas/pandas_exercises
+/python_async_project_5.drawio.png

@@ -303,6 +303,7 @@ def process_large_file(filename):
 
 ### 7.2 Exception Filtering with `except*` (Python 3.11+)
 
+#### Example 1:
 ```python
 def process_transaction(amount):
     try:
@@ -317,6 +318,68 @@ def process_transaction(amount):
         # Handle all connection-related errors
         for exc in exc_group.exceptions:
             print(f"Connection issue: {exc}")
+```
+
+#### Example 2: Batch Processing
+```python
+def process_user_batch(users):
+    errors = []
+    
+    for user in users:
+        try:
+            validate_user(user)
+            save_user(user)
+            send_welcome_email(user)
+        except ValueError as e:
+            errors.append(e)  # Validation errors
+        except ConnectionError as e:
+            errors.append(e)  # Database/email errors
+    
+    if errors:
+        raise ExceptionGroup("Batch processing failed", errors)
+
+# Handle the batch results
+try:
+    process_user_batch(user_list)
+except* ValueError as validation_errors:
+    # Log validation issues and maybe retry with corrected data
+    for err in validation_errors.exceptions:
+        log_validation_error(err)
+except* ConnectionError as connection_errors:
+    # Retry connection-related operations
+    for err in connection_errors.exceptions:
+        schedule_retry(err)
+```
+
+#### Example 3: Parallel Operations
+```python
+import asyncio
+from exceptiongroup import ExceptionGroup
+
+async def fetch_multiple_apis():
+    tasks = [
+        fetch_user_data(),
+        fetch_weather_data(), 
+        fetch_stock_prices()
+    ]
+    
+    errors = []
+    for task in tasks:
+        try:
+            await task
+        except Exception as e:
+            errors.append(e)
+    
+    if errors:
+        raise ExceptionGroup("API fetch failures", errors)
+
+# Handle different types of API failures
+try:
+    await fetch_multiple_apis()
+except* TimeoutError as timeout_errors:
+    print("Some APIs timed out - using cached data")
+except* AuthenticationError as auth_errors:
+    print("Authentication failed - refreshing tokens")
 ```
 
 ### 7.3 Contextlib for Creating Context Managers
@@ -377,7 +440,7 @@ except Exception:
 try:
     process_data()
 except Exception as e:
-    logger.error(f"Data processing failed: {e}")
+    logger.error("Data processing failed: %s", e)
     # Handle the error or re-raise it
 ```
 
